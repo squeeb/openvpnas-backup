@@ -18,9 +18,8 @@ openvpnas_dbs=(
 [ ! -d $backup_dir ] && mkdir -p $backup_dir
 
 function log() {
-  content=$(echo "$(date +%F' '%H:%M:%S) $0 $1")
-  logger -t openvpn_backup $content
-  echo $content
+  logger -t openvpn_backup $1
+  echo $(date +%F' '%H:%M:%S) $1
 }
 
 function backup_openvpnas_db() {
