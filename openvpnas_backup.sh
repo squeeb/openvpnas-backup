@@ -39,7 +39,7 @@ function backup_openvpnas_configs() {
 
 function symlink_last_backup() {
   log "${FUNCNAME[0]}: Creating 'current' symlink: "
-  [ -L ${backup_dir}/current ] && unlink $(dirname ${backup_dir})/current
+  [ -L $(dirname ${backup_dir})/current ] && unlink $(dirname ${backup_dir})/current
   ln -s ${backup_dir} $(dirname ${backup_dir})/current
   [ $? -eq 0 ] && log "${FUNCNAME[0]}: Done" || log "${FUNCNAME[0]}: Failed"
 }
